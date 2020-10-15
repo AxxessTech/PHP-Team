@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Feature Branch Workflow | PHP Docs</title>
+    <meta name="generator" content="VuePress 1.6.0">
+    
+    <meta name="description" content="Documentation for the Axxess PHP Team">
+    <link rel="preload" href="/PHP-Team/assets/css/0.styles.d3eb433b.css" as="style"><link rel="preload" href="/PHP-Team/assets/js/app.549a3186.js" as="script"><link rel="preload" href="/PHP-Team/assets/js/2.21789d1a.js" as="script"><link rel="preload" href="/PHP-Team/assets/js/14.260dcffe.js" as="script"><link rel="prefetch" href="/PHP-Team/assets/js/10.4f59b3d4.js"><link rel="prefetch" href="/PHP-Team/assets/js/11.f4e62a2c.js"><link rel="prefetch" href="/PHP-Team/assets/js/12.05a540f4.js"><link rel="prefetch" href="/PHP-Team/assets/js/13.350c848d.js"><link rel="prefetch" href="/PHP-Team/assets/js/15.40601d37.js"><link rel="prefetch" href="/PHP-Team/assets/js/3.3f9dd631.js"><link rel="prefetch" href="/PHP-Team/assets/js/4.9db845cf.js"><link rel="prefetch" href="/PHP-Team/assets/js/5.74ccce51.js"><link rel="prefetch" href="/PHP-Team/assets/js/6.761b8afb.js"><link rel="prefetch" href="/PHP-Team/assets/js/7.6ba92ba9.js"><link rel="prefetch" href="/PHP-Team/assets/js/8.1077165e.js"><link rel="prefetch" href="/PHP-Team/assets/js/9.64883b39.js">
+    <link rel="stylesheet" href="/PHP-Team/assets/css/0.styles.d3eb433b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/PHP-Team/" class="home-link router-link-active"><img src="/PHP-Team/logo.svg" alt="PHP Docs" class="logo"> <span class="site-name can-hide">PHP Docs</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Axxess PHP Team</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/PHP-Team/" aria-current="page" class="sidebar-link">Home</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Code Style Guide</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/PHP-Team/code-style-guide/" class="sidebar-link">General</a></li><li><a href="/PHP-Team/code-style-guide/php-and-laravel.html" class="sidebar-link">PHP &amp; Laravel</a></li><li><a href="/PHP-Team/code-style-guide/javascript.html" class="sidebar-link">JavaScript</a></li><li><a href="/PHP-Team/code-style-guide/vuejs.html" class="sidebar-link">Vue.js</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Version Control</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/PHP-Team/version-control/" aria-current="page" class="sidebar-link">General</a></li><li><a href="/PHP-Team/version-control/feature-branch-workflow.html" aria-current="page" class="active sidebar-link">Feature Branch Workflow</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/PHP-Team/version-control/feature-branch-workflow.html#starting-a-new-feature" class="sidebar-link">Starting a new feature</a></li><li class="sidebar-sub-header"><a href="/PHP-Team/version-control/feature-branch-workflow.html#working-on-the-feature-branch" class="sidebar-link">Working on the feature branch</a></li><li class="sidebar-sub-header"><a href="/PHP-Team/version-control/feature-branch-workflow.html#completing-the-feature" class="sidebar-link">Completing the feature</a></li><li class="sidebar-sub-header"><a href="/PHP-Team/version-control/feature-branch-workflow.html#making-a-pull-request" class="sidebar-link">Making a Pull Request</a></li><li class="sidebar-sub-header"><a href="/PHP-Team/version-control/feature-branch-workflow.html#final-steps" class="sidebar-link">Final steps</a></li><li class="sidebar-sub-header"><a href="/PHP-Team/version-control/feature-branch-workflow.html#resources" class="sidebar-link">Resources</a></li></ul></li><li><a href="/PHP-Team/version-control/gitflow-workflow.html" class="sidebar-link">Gitflow Workflow</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Local Development</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/PHP-Team/local-development/" class="sidebar-link">Docker</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="feature-branch-workflow"><a href="#feature-branch-workflow" class="header-anchor">#</a> Feature Branch Workflow</h1> <p>The core idea behind the Feature Branch Workflow is that all feature development should take place in a dedicated branch instead of the <code>master</code> branch.
+This encapsulation makes it easy for multiple developers to work on a particular feature without disturbing the main codebase.
+It also means the <code>master</code> branch will never contain broken code, which is a huge advantage for continuous integration environments.</p> <p>Encapsulating feature development also makes it possible to leverage pull requests, which are a way to initiate discussions around a branch.
+They give other developers the opportunity to sign off on a feature before it gets integrated into the official project.
+Or, if you get stuck in the middle of a feature, you can open a pull request asking for suggestions from your colleagues.
+The point is, pull requests make it incredibly easy for your team to comment on each others work.</p> <br> <h2 id="starting-a-new-feature"><a href="#starting-a-new-feature" class="header-anchor">#</a> Starting a new feature</h2> <p>It is prefered to create a new feature branch directly from a Jira ticket so that features can be tracked back to the original requirement.</p> <h3 id="i-creating-a-new-feature-branch-from-a-jira-ticket"><a href="#i-creating-a-new-feature-branch-from-a-jira-ticket" class="header-anchor">#</a> i) Creating a new feature branch from a Jira ticket:</h3> <div class="language- extra-class"><pre class="language-text"><code>from JIRA &gt; &quot;Create Branch&quot;:
+    Repository: CAHPS/admin3
+    Branch Type: [Bugfix|Feature]
+    Branch from: Master
+    Branch name: PE-123-my-feature-branch
+</code></pre></div><h4 id="then-from-the-cli"><a href="#then-from-the-cli" class="header-anchor">#</a> Then, from the CLI:</h4> <div class="language- extra-class"><pre><code>$ git fetch origin feature/PE-123-my-feature-branch:feature/PE-123-my-feature-branch
+$ git checkout feature/PE-123-my-feature-branch
+</code></pre></div><br> <h3 id="ii-creating-a-new-feature-branch-from-the-cli"><a href="#ii-creating-a-new-feature-branch-from-the-cli" class="header-anchor">#</a> ii) Creating a new feature branch from the CLI:</h3> <div class="language- extra-class"><pre><code>$ git checkout master
+$ git pull origin master
+
+$ git checkout -b feature/my-feature-branch
+
+$ git push origin feature/my-feature-branch
+</code></pre></div><br> <h2 id="working-on-the-feature-branch"><a href="#working-on-the-feature-branch" class="header-anchor">#</a> Working on the feature branch</h2> <p>On this branch, edit, stage, and commit changes in the usual fashion, building up the feature with as many commits as necessary.</p> <div class="language- extra-class"><pre><code>$ git add &lt;some-file&gt;
+$ git add &lt;some-file&gt;
+$ git commit -m &quot;Started work on feature&quot;
+
+$ git add &lt;some-file&gt;
+$ git commit -m &quot;Did some more work on feature&quot;
+</code></pre></div><br> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>It's a good idea to periodically push the feature branch up to the central repository.
+This serves as a convenient backup, when collaborating with other developers, this would give them access to view commits to the new branch.</p> <div class="language- extra-class"><pre class="language-text"><code>$ git push origin feature/my-feature-branch
+</code></pre></div><p><strong>Try to do this at least once a week.</strong></p></div> <br> <p>Work on the feature and make commits like you would any time you use Git.</p> <br> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>If the development of the feature branch spans a significant period of time,
+you should periodically merge the <code>master</code> branch into the feature branch and resolve any merge conflicts.</p> <div class="language- extra-class"><pre class="language-text"><code>$ git checkout feature/my-feature-branch
+$ git merge master
+</code></pre></div><p>Resolve any merge conflics.</p></div> <br> <h2 id="completing-the-feature"><a href="#completing-the-feature" class="header-anchor">#</a> Completing the feature</h2> <p>Run the test suite.</p> <div class="language- extra-class"><pre><code>$ php artisan test
+</code></pre></div><br> <p>Merge the <code>master</code> branch into the feature branch and resolve any merge conflicts.</p> <div class="language- extra-class"><pre><code>$ git checkout feature/my-feature-branch
+$ git merge master
+</code></pre></div><p>Resolve any merge conflics.</p> <br> <p>Next, if any fontend assets were changed during the development of your feature, they need to be compiled.</p> <div class="language- extra-class"><pre><code># Run all Mix tasks and minify output...
+$ npm run production
+
+$ git add .
+$ git commit -m &quot;Compiled production assets&quot;
+</code></pre></div><br> <p>Once complete, make one final push to the central repository.</p> <div class="language- extra-class"><pre><code>$ git push origin feature/my-feature-branch
+</code></pre></div><br> <p>Lastly, if there are multiple commits in your feature branch, you should consider squashing your commits.
+This will enforce a cohesive Git history of feature merges.</p> <div class="language- extra-class"><pre><code>$ git rebase --interactive [SHA]
+</code></pre></div><p>Note: That [SHA] is the hash of the commit just before the first one you want to rewrite from.</p> <div class="language- extra-class"><pre><code># Interactive rebasing session
+pick 1230001 Started work on feature
+squash 1230002 Did some more work on feature
+</code></pre></div><br> <h2 id="making-a-pull-request"><a href="#making-a-pull-request" class="header-anchor">#</a> Making a Pull Request</h2> <p>Push your completed feature branch to the central repository.
+Note: Use the <code>--force</code> flag if you squashed any commits on your feature branch.</p> <div class="language- extra-class"><pre><code>$ git push --force origin feature/my-feature-branch
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>from Stash &gt; &quot;Create pull request&quot;:
+    Source: feature/my-feature-branch
+    Destination: master
+    Reviewers: [A colleague]
+</code></pre></div><br> <h2 id="final-steps"><a href="#final-steps" class="header-anchor">#</a> Final steps</h2> <p>If you have been assigned to review a PR, you must be satisfied with the changed code before approving and merging.
+Ask your self, has the spirit of the ticket been satisfied, is the code written cleanly, have any bugs been introduced?
+Depending on the size of the change, you can choose to simply visually inspect the code in Stash or for larger changes,
+pull down the feature branch and test on your local system.</p> <div class="language- extra-class"><pre><code># Pull down the feature branch
+$ git fetch origin feature/my-feature-branch:feature/PE-123-my-feature-branch
+$ git checkout feature/my-feature-branch
+</code></pre></div><br> <h4 id="approve-and-merge"><a href="#approve-and-merge" class="header-anchor">#</a> Approve and Merge</h4> <p>Once satisfied you can approve the PR.
+Then ensure that <strong>&quot;Delete source branch after merging&quot;</strong> is checked before hitting the &quot;Merge&quot; button.</p> <br> <h4 id="clean-up-locally"><a href="#clean-up-locally" class="header-anchor">#</a> Clean up locally</h4> <div class="language- extra-class"><pre><code>$ git checkout master
+$ git pull origin master
+$ git branch -d feature/my-feature-branch
+</code></pre></div><p>Note that Git should not complain about the <code>git branch -d</code>, since new feature is now accessible from the master branch.</p> <br> <h2 id="resources"><a href="#resources" class="header-anchor">#</a> Resources</h2> <ul><li><p><a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">Git Documentation<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="outbound-link-title" role="img" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><title id="outbound-link-title">(opens new window)</title> <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></li> <li><p><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow" target="_blank" rel="noopener noreferrer">Git Feature Branch Workflow<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="outbound-link-title" role="img" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><title id="outbound-link-title">(opens new window)</title> <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></li> <li><p><a href="https://confluence.atlassian.com/display/STASH031/Using+pull+requests+in+Stash" target="_blank" rel="noopener noreferrer">Using pull requests in Stash<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="outbound-link-title" role="img" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><title id="outbound-link-title">(opens new window)</title> <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/PHP-Team/version-control/" class="prev router-link-active">
+        General
+      </a></span> <span class="next"><a href="/PHP-Team/version-control/gitflow-workflow.html">
+        Gitflow Workflow
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/PHP-Team/assets/js/app.549a3186.js" defer></script><script src="/PHP-Team/assets/js/2.21789d1a.js" defer></script><script src="/PHP-Team/assets/js/14.260dcffe.js" defer></script>
+  </body>
+</html>
